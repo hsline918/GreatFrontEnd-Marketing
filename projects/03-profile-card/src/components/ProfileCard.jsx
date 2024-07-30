@@ -30,16 +30,28 @@ export default function ProfileCard({
         </a>
         <div className="flex flex-row gap-4 justify-center">
           <a href="#">
-            <img src="/assets/github-icon.svg" />
+            <img
+              src="/assets/github-icon.svg"
+              alt="GitHub"
+              aria-label="GitHub"
+            />
           </a>
           <a href="#">
-            <img src="/assets/linkedin-icon.svg" />
+            <img
+              src="/assets/linkedin-icon.svg"
+              alt="linkedIn"
+              aria-label="LinkedIn"
+            />
           </a>
           <a href="#">
-            <img src="/assets/ins-icon.svg" />
+            <img
+              src="/assets/ins-icon.svg"
+              alt="Instagram"
+              aria-label="Instagram"
+            />
           </a>
           <a href="#">
-            <img src="/assets/x-icon.svg" />
+            <img src="/assets/x-icon.svg" alt="Twitter" aria-label="Twitter" />
           </a>
         </div>
       </div>
