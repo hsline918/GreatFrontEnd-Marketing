@@ -6,7 +6,7 @@ export default function TestimonialCard({
   alt,
 }) {
   return (
-    <figure className="w-[319px] md:w-[336px] 3xl:w-[384px] flex flex-col gap-4 outline-1 outline-neutral-200 p-6 rounded-lg bg-white shadow-soft break-inside-avoid">
+    <figure className="w-[19.9rem] md:w-[21rem] 3xl:w-[24rem] flex flex-col gap-4 outline-1 outline-neutral-200 p-6 rounded-lg bg-white shadow-soft break-inside-avoid">
       <figcaption className="flex gap-4">
         <img
           src={src}

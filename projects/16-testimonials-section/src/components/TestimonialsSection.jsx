@@ -75,9 +75,9 @@ const cardData = [
   },
 ];
 
-export default function TestimonialSection() {
+export default function TestimonialsSection() {
   return (
-    <section className="m-4 py-12 md:py-16 3xl:py-24 px-3 md:px-4 3xl:px-24  bg-white outline outline-1 outline-neutral-200 rounded flex flex-col gap-12 md:gap-16">
+    <section className="m-4 py-12 md:py-16 3xl:py-24 px-3 md:px-4 3xl:px-24  bg-white outline outline-1 outline-neutral-200 rounded flex flex-col gap-12 md:gap-16 ">
       <header className="px-8 flex flex-col gap-5 text-center">
         <div className="flex flex-col gap-3">
           <p className="text-indigo-700 text-xl font-semibold">Testimonials</p>
@@ -90,19 +90,19 @@ export default function TestimonialSection() {
           us.
         </div>
       </header>
-      <div className="space-y-6 columns-1 md:columns-2 3xl:columns-3">
-        {/* grid items-start justify-items-center grid-cols-1 md:grid-cols-2 3xl:grid-rows-3 3xl:grid-flow-col gap-6 */}
-        {/*  */}
-        {cardData.map((card) => (
-          <TestimonialCard
-            key={card.userName}
-            userName={card.userName}
-            userHandle={card.userHandle}
-            testimonial={card.testimonial}
-            src={card.src}
-            alt={card.alt}
-          />
-        ))}
+      <div className="flex justify-center">
+        <div className="columns-1 space-y-6 md:columns-2 md:space-y-9 md:gap-8 3xl:columns-3 3xl:space-y-8 3xl:gap-8">
+          {cardData.map((card) => (
+            <TestimonialCard
+              key={card.userName}
+              userName={card.userName}
+              userHandle={card.userHandle}
+              testimonial={card.testimonial}
+              src={card.src}
+              alt={card.alt}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
