@@ -1,4 +1,5 @@
 import ResponsiveImage from "./ResponsiveImage";
+import EmailForm from "./EmailForm";
 export default function NewsletterSection() {
   return (
     <section className="m-4 py-8 md:py-16 3xl:py-24 px-3 md:px-4 3xl:px-24 bg-white rounded-md shadow-soft ">
@@ -41,27 +42,7 @@ export default function NewsletterSection() {
               </figure>
             </div>
           </blockquote>
-          <form className="flex flex-col md:flex-row gap-4">
-            <div className="flex flex-col gap-3 md:gap-4">
-              <input
-                id="username"
-                name="username"
-                type="text"
-                placeholder="Enter your email"
-                autoComplete="username"
-                className="text-ellipsis text-sm bg-neutral-50 py-[0.625rem] px-[0.875rem] rounded ring-1 ring-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-indigo-700 md:w-[20.875rem]"
-              />
-              <p className="text-base font-normal text-neutral-600">
-                We only send you the best! No spam.
-              </p>
-            </div>
-            <button
-              type=""
-              className="text-white bg-indigo-700 hover:bg-indigo-800 shadow-soft py-[0.625rem] px-[0.875rem] rounded md:w-[6.125rem] md:h-[2.5rem] text-sm font-medium"
-            >
-              Subscribe
-            </button>
-          </form>
+          <EmailForm />
         </figcaption>
         <ResponsiveImage
           smallSrc="./assets/Image.png"
