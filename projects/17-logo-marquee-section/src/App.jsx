@@ -2,5 +2,9 @@ import "./App.css";
 import LogoMarqueeSection from "./components/LogoMarqueeSection";
 
 export default function App() {
-  return <LogoMarqueeSection />;
+  return (
+    <div className="h-screen flex flex-col">
+      <LogoMarqueeSection />
+    </div>
+  );
 }

@@ -59,7 +59,7 @@ export default function LogoMarqueeSection() {
   ];
 
   return (
-    <div className="m-4 px-4 bg-white h-screen flex flex-col justify-center gap-8">
+    <div className="m-4 px-4 bg-white grow flex flex-col justify-center gap-8">
       <p className="text-base font-medium text-neutral-600 text-center">
         Used by teams that you love
       </p>
@@ -72,7 +72,6 @@ export default function LogoMarqueeSection() {
           delay={0}
           play={true}
           direction="left"
-          className="outline-1"
         >
           {logos.map((logo, index) => (
             <CombinedLogo

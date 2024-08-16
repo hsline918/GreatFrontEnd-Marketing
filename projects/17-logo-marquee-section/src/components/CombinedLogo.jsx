@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function CombinedLogo({
   icon,
   text,
@@ -10,7 +11,7 @@ export default function CombinedLogo({
   return (
     <>
       <div
-        className={"inline-flex items-center px-[4.4063rem] md:px-7 3xl:px-10"}
+        className={"inline-flex px-[4.4063rem] md:px-7 3xl:px-10"}
         style={{ gap: spacing }}
       >
         {textOnly ? (
@@ -37,3 +38,13 @@ export default function CombinedLogo({
     </>
   );
 }
+
+CombinedLogo.propTypes = {
+  icon: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  textWidth: PropTypes.string,
+  textHeight: PropTypes.string,
+  altText: PropTypes.string,
+  spacing: PropTypes.string,
+  textOnly: PropTypes.bool,
+};
