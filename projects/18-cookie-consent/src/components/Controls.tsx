@@ -1,13 +1,21 @@
 import { useState } from "react";
 import ManageCookie from "./ManageCookie";
+import React from "react";
+
+interface ControlsProps {
+  setCloseBanner: React.Dispatch<React.SetStateAction<boolean>>;
+  handleAccept: () => void;
+  handleDecline: () => void;
+  setCookieConsent: (marketing: boolean, analytics: boolean) => void;
+}
 
 export default function Controls({
   setCloseBanner,
   handleAccept,
   handleDecline,
   setCookieConsent,
-}) {
-  const [manage, setManage] = useState(false);
+}: ControlsProps) {
+  const [manage, setManage] = useState<boolean>(false);
 
   return (
     <>

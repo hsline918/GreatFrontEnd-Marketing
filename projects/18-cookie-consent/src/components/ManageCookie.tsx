@@ -1,13 +1,20 @@
 import { useState } from "react";
 import ToggleButton from "./ToggleButton";
+import React from "react";
+
+interface ManageCookieProps {
+  setCloseBanner: React.Dispatch<React.SetStateAction<boolean>>;
+  handleDecline: () => void;
+  setCookieConsent: (marketing: boolean, analytics: boolean) => void;
+}
 
 export default function ManageCookie({
   setCloseBanner,
   handleDecline,
   setCookieConsent,
-}) {
-  const [marketingToggled, setMarketingToggled] = useState(false);
-  const [analyticsToggled, setAnalyticsToggled] = useState(false);
+}: ManageCookieProps) {
+  const [marketingToggled, setMarketingToggled] = useState<boolean>(false);
+  const [analyticsToggled, setAnalyticsToggled] = useState<boolean>(false);
 
   function toggleAcceptAll() {
     setAnalyticsToggled(true);
@@ -20,13 +27,17 @@ export default function ManageCookie({
   }
 
   return (
-    <section className="w-[340px] flex flex-col justify-center gap-6 bg-white p-6">
+    <section className="w-[21.25rem] flex flex-col justify-center gap-6 bg-white p-6">
       <div className="flex flex-col justify-center gap-1 self-stretch">
         <div className="flex justify-between gap-2 ">
           <span className="font-semibold text-base text-neutral-900">
             Essentials
           </span>
-          <ToggleButton isChecked={true} isDisabled={true} />
+          <ToggleButton
+            isChecked={true}
+            isDisabled={true}
+            setIsChecked={() => {}}
+          />
         </div>
         <span className="font-normal text-sm text-neutral-600">
           These cookies are essential for the proper functioning of our services

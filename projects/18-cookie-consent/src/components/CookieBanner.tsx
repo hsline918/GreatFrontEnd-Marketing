@@ -1,7 +1,12 @@
 import Controls from "./Controls";
 import useDecision from "./useDecision";
+import React from "react";
 
-export default function CookieBanner({ setCloseBanner }) {
+interface CookieBannerProps {
+  setCloseBanner: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function CookieBanner({ setCloseBanner }: CookieBannerProps) {
   const { handleAccept, handleDecline, setCookieConsent } =
     useDecision(setCloseBanner);
 

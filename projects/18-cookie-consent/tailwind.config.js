@@ -1,13 +1,13 @@
-const { fonts } = require("./tailwind/fonts");
-const { shadows } = require("./tailwind/shadows");
-const { backgrounds } = require("./tailwind/backgrounds");
+import { fonts } from "./tailwind/fonts";
+import { shadows } from "./tailwind/shadows";
+import { backgrounds } from "./tailwind/backgrounds";
 import { screens } from "./tailwind/screens";
-const textRenderPlugin = require("./tailwind/plugins/textRender");
+import textRenderPlugin from "./tailwind/plugins/textRender";
 
 /** @type {import('tailwindcss').Config} */
 
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       ...fonts,

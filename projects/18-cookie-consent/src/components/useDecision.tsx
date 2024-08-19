@@ -1,5 +1,5 @@
-export default function useDecision(setCloseBanner) {
-  function setCookieConsent(marketing, analytics) {
+export default function useDecision(setCloseBanner: (value: boolean) => void) {
+  function setCookieConsent(marketing: boolean, analytics: boolean) {
     const expirationTime = 365 * 24 * 60 * 60;
     document.cookie = `essential=${true}; max-age=${expirationTime}; path=/`;
     document.cookie = `essential=${marketing}; max-age=${expirationTime}; path=/`;
