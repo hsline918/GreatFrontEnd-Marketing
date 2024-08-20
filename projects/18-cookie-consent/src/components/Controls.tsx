@@ -7,6 +7,8 @@ interface ControlsProps {
   handleAccept: () => void;
   handleDecline: () => void;
   setCookieConsent: (marketing: boolean, analytics: boolean) => void;
+  setMarketingToggled: React.Dispatch<React.SetStateAction<boolean>>;
+  setAnalyticsToggled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Controls({
@@ -14,6 +16,8 @@ export default function Controls({
   handleAccept,
   handleDecline,
   setCookieConsent,
+  setMarketingToggled,
+  setAnalyticsToggled,
 }: ControlsProps) {
   const [manage, setManage] = useState<boolean>(false);
 
@@ -48,6 +52,8 @@ export default function Controls({
               setCloseBanner={setCloseBanner}
               handleDecline={handleDecline}
               setCookieConsent={setCookieConsent}
+              setMarketingToggled={setMarketingToggled}
+              setAnalyticsToggled={setAnalyticsToggled}
             />
           </div>
         </div>

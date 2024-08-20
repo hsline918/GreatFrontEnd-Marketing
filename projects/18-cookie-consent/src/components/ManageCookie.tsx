@@ -6,23 +6,29 @@ interface ManageCookieProps {
   setCloseBanner: React.Dispatch<React.SetStateAction<boolean>>;
   handleDecline: () => void;
   setCookieConsent: (marketing: boolean, analytics: boolean) => void;
+  setMarketingToggled: React.Dispatch<React.SetStateAction<boolean>>;
+  setAnalyticsToggled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ManageCookie({
   setCloseBanner,
   handleDecline,
   setCookieConsent,
+  setMarketingToggled,
+  setAnalyticsToggled,
 }: ManageCookieProps) {
-  const [marketingToggled, setMarketingToggled] = useState<boolean>(false);
-  const [analyticsToggled, setAnalyticsToggled] = useState<boolean>(false);
+  const [analyticsOn, setAnalyticsOn] = useState(false);
+  const [marketingOn, setMarketingOn] = useState(false);
 
   function toggleAcceptAll() {
-    setAnalyticsToggled(true);
-    setMarketingToggled(true);
+    setAnalyticsOn(true);
+    setMarketingOn(true);
   }
 
   function handleSave() {
-    setCookieConsent(marketingToggled, analyticsToggled);
+    setAnalyticsToggled(analyticsOn);
+    setMarketingToggled(marketingOn);
+    setCookieConsent(marketingOn, analyticsOn);
     setCloseBanner(true);
   }
 
@@ -50,8 +56,8 @@ export default function ManageCookie({
             Analytics
           </span>
           <ToggleButton
-            isChecked={marketingToggled}
-            setIsChecked={setMarketingToggled}
+            isChecked={analyticsOn}
+            setIsChecked={setAnalyticsOn}
             isDisabled={null}
           />
         </div>
@@ -67,8 +73,8 @@ export default function ManageCookie({
             Marketing
           </span>
           <ToggleButton
-            isChecked={analyticsToggled}
-            setIsChecked={setAnalyticsToggled}
+            isChecked={marketingOn}
+            setIsChecked={setMarketingOn}
             isDisabled={null}
           />
         </div>

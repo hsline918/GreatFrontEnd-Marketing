@@ -4,11 +4,20 @@ import React from "react";
 
 interface CookieBannerProps {
   setCloseBanner: React.Dispatch<React.SetStateAction<boolean>>;
+  setMarketingToggled: React.Dispatch<React.SetStateAction<boolean>>;
+  setAnalyticsToggled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function CookieBanner({ setCloseBanner }: CookieBannerProps) {
-  const { handleAccept, handleDecline, setCookieConsent } =
-    useDecision(setCloseBanner);
+export default function CookieBanner({
+  setCloseBanner,
+  setMarketingToggled,
+  setAnalyticsToggled,
+}: CookieBannerProps) {
+  const { handleAccept, handleDecline, setCookieConsent } = useDecision(
+    setCloseBanner,
+    setMarketingToggled,
+    setAnalyticsToggled
+  );
 
   return (
     <div className="fixed bottom-0 left-0 right-0 p-4 md:px-8 md:py-6 3xl:py-6 3xl:px-28 bg-white flex flex-col gap-6 z-10">
@@ -34,6 +43,8 @@ export default function CookieBanner({ setCloseBanner }: CookieBannerProps) {
         handleAccept={handleAccept}
         handleDecline={handleDecline}
         setCookieConsent={setCookieConsent}
+        setMarketingToggled={setMarketingToggled}
+        setAnalyticsToggled={setAnalyticsToggled}
       />
     </div>
   );
