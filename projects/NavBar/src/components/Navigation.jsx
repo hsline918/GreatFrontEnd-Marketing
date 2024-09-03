@@ -28,15 +28,17 @@ export default function Navbar() {
       }`}
     >
       {/* DeskTop(3xl) */}
-      <div className="hidden 3xl:pt-7 3xl:pb-3 3xl:px-28 3xl:flex 3xl:gap-24 3xl:self-center 3xl:justify-between">
-        <div className="3xl:flex 3xl:gap-1 3xl:self-center">
-          <NavLogo />
-        </div>
-        <div className="3xl:flex 3xl:gap-8 3xl:self-center">
-          <NavLists />
-        </div>
-        <div className="3xl:flex 3xl:gap-4">
-          <NavButton />
+      <div className="3xl:bg-gradient-148 3xl:h-screen">
+        <div className="hidden 3xl:pt-7 3xl:pb-3 3xl:px-28 3xl:flex 3xl:gap-24 3xl:self-center 3xl:justify-between ">
+          <div className="3xl:flex 3xl:gap-1 3xl:self-center">
+            <NavLogo />
+          </div>
+          <div className="3xl:flex 3xl:gap-8 3xl:self-center">
+            <NavLists />
+          </div>
+          <div className="3xl:flex 3xl:gap-4">
+            <NavButton />
+          </div>
         </div>
       </div>
       {/* Mobile & Tablet */}
