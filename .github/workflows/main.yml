@@ -17,11 +17,23 @@ jobs:
           
       - name: Install dependencies
         run: npm ci
-        
+
+      - name: Run tests
+        run: npm run test -- --reporter=junit --outputFile=test-results.xml
+        # 跑測試並產生測試報告
+
+      - name: Upload test results to GitHub Actions
+        uses: actions/upload-test-results@v2
+        with:
+          path: test-results.xml
+        # 直接把測試結果上傳到GitHub Actions
+
       - name: Build project
         run: npm run build
         
       - name: Deploy to Vercel
+        if: success()
+        # 只有當所有先前的步驟（包括測試）成功時，才會執行部署。
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
