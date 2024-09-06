@@ -15,20 +15,26 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Change to project directory
-        run: cd projects/08-pricing-section-single
+      
         # 因為monorepo的關係必須切換資料夾
+        # - name: Change to project directory
+        # run: cd projects/08-pricing-section-single
 
-      - name: Display package.json content
-        run: cat package.json
+      #- name: Display package.json content
+       # run: cat package.json
         # 確認package.json內容
           
       - name: Install dependencies
         run: npm ci
 
       - name: Run tests
-        run: npm run test:pricing -- --reporter=junit --outputFile=test-results.xml
+        run: |
+         cd projects/08-pricing-section-single
+         npm install
+         npm run test -- --reporter=junit --outputFile=test-results.xml
+        
         # 跑測試並產生測試報告
+        # run: npm run test:pricing -- --reporter=junit --outputFile=test-results.xml
 
       - name: Upload test results to GitHub Actions
         uses: actions/upload-artifact@v4
