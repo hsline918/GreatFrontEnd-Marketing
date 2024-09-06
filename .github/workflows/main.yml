@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test -- --reporter=junit --outputFile=test-results.xml
+        run: npm run test:pricing -- --reporter=junit --outputFile=test-results.xml
         # 跑測試並產生測試報告
 
       - name: Upload test results to GitHub Actions
