@@ -47,7 +47,7 @@ jobs:
       - name: Build project
         run: |
          cd projects/08-pricing-section-single
-         run build
+         npm run build
         
       - name: Deploy to Vercel
         if: success()
