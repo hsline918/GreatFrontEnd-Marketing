@@ -14,12 +14,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
-      - name: Change to project directory
-        run: cd projects/08-pricing-section-single
           
       - name: Install dependencies
         run: npm ci
+
+      - name: Display package.json content
+        run: cat package.json
+        #確認
 
       - name: Run tests
         run: npm run test -- --reporter=junit --outputFile=test-results.xml
