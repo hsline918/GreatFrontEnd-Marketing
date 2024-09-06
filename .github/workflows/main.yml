@@ -46,7 +46,7 @@ jobs:
 
       - name: Build project
         run: |
-         cd projects/08-pricing-section-singlenpm 
+         cd projects/08-pricing-section-single
          run build
         
       - name: Deploy to Vercel
