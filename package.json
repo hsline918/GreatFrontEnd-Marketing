@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "cd packages/web-app && npm run dev"
+    "dev": "cd packages/web-app && npm run dev",
+    "test:pricing": "cd projects/08-pricing-section-single && npm run test"
   }
 }
