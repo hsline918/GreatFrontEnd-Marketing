@@ -45,8 +45,9 @@ jobs:
         # 直接把測試結果上傳到GitHub Actions
 
       - name: Build project
-        run: npm run build
-        
+        run: |
+         cd projects/08-pricing-section-singlenpm 
+         run build
         
       - name: Deploy to Vercel
         if: success()
