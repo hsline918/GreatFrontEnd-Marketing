@@ -8,12 +8,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
+          node-version: '20'
           
       - name: Install dependencies
         run: npm ci
@@ -23,8 +23,8 @@ jobs:
         # 跑測試並產生測試報告
 
       - name: Upload test results to GitHub Actions
-        uses: actions/upload-artifact@v2
-        # 使用upload-artifact@v2 而不是 upload-test-results@v2
+        uses: actions/upload-artifact@v4
+        # 使用upload-artifact@v4 而不是 upload-test-results@v4
         with:
           name: test-results
           path: test-results.xml
@@ -33,10 +33,11 @@ jobs:
       - name: Build project
         run: npm run build
         
+        
       - name: Deploy to Vercel
         if: success()
         # 只有當所有先前的步驟（包括測試）成功時，才會執行部署。
-        uses: amondnet/vercel-action@v20
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
