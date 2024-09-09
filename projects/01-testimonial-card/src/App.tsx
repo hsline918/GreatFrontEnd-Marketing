@@ -1,7 +1,16 @@
 import "./App.css";
 import TestimonialCard from "./components/TestimonialCard";
+import React from "react";
 
-const cardData = [
+interface CardData {
+  userName: string;
+  userHandle: string;
+  testimonial: string;
+  src: string;
+  alt: string;
+}
+
+const cardData: CardData[] = [
   {
     userName: "Sarah Dole",
     userHandle: "@sarahdole",
@@ -12,7 +21,7 @@ const cardData = [
   },
 ];
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <>
       {cardData.map((card) => (

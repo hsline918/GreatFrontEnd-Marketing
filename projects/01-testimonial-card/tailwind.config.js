@@ -1,7 +1,7 @@
-const { fonts } = require("./tailwind/fonts");
-const { shadows } = require("./tailwind/shadows");
-const { backgrounds } = require("./tailwind/backgrounds");
-const textRenderPlugin = require("./tailwind/plugins/textRender");
+import { fonts } from "./tailwind/fonts";
+import { shadows } from "./tailwind/shadows";
+import { backgrounds } from "./tailwind/backgrounds";
+import textRenderPlugin from "./tailwind/plugins/textRender";
 
 /** @type {import('tailwindcss').Config} */
 
