@@ -16,7 +16,7 @@ export default function PricingSingle() {
   ];
 
   return (
-    <section className="p-4 bg-gradient-148 font-noto-sans antialiased text-render-optimize h-screen">
+    <section className="p-4 bg-gradient-148 font-noto-sans antialiased text-render-optimize">
       <div className="px-3 md:px-4 py-12 md:py-16 3xl:p-24 bg-white rounded-md shadow-lg">
         <blockquote className="text-center mb-16">
           <p className="text-indigo-700 font-semibold text-base mb-3">
@@ -30,7 +30,7 @@ export default function PricingSingle() {
             Always active.
           </p>
         </blockquote>
-        <div className="3xl:flex 3xl:gap-8 3xl:">
+        <div className="3xl:flex 3xl:gap-8 3xl:justify-center">
           <blockquote className="mb-8 md:mb-12 3xl:mb-0 3xl:self-center 3xl:w-[43.5626rem]">
             <h2 className="text-neutral-900 font-semibold text-2xl md:text-4xl mb-8 md:mb-16">
               Unlock creativity once, enjoy forever
@@ -48,7 +48,7 @@ export default function PricingSingle() {
           </blockquote>
           <blockquote className="p-8 rounded-lg border border-neutral-200 shadow-lg flex flex-col gap-8 3xl:w-[30.4rem]">
             <div className="inline-flex flex-col items-center gap-2">
-              <span className="py-1 px-[0.625rem] rounded-full border border-green-200 bg-green-50 text-green-700 ">
+              <span className="py-1 px-[0.625rem] rounded-full border border-green-200 bg-green-50 text-sm font-normal text-green-700 ">
                 Popular
               </span>
               <h1 className="text-5xl md:text-6xl font-semibold md:font-bold text-neutral-900">
