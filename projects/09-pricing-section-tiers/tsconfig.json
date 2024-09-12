@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/", // path to output directory
+    "sourceMap": true, // allow sourcemap support
+    "strictNullChecks": true, // enable strict null checks as a best practice
+    "module": "es6", // specify module code generation
+    "jsx": "react", // use typescript to transpile jsx to js
+    "target": "es5", // specify ECMAScript target version
+    "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+    "esModuleInterop": true, //你可以繼續使用 import React from "react"; 的語法。
+    //這個設置不僅適用於 React，還適用於其他可能有類似導入問題的庫。你不需要在每個文件中更改導入語句。它提供了更好的模組兼容性，特別是在混合使用 CommonJS 和 ES 模組的項目中。
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": ["./src/"]
+}
+
+//src: https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide

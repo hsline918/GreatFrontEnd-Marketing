@@ -1,0 +1,18 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  @font-face {
+    font-family: "Noto Sans";
+    font-weight: 100 900;
+    font-stretch: 75% 125%;
+    font-style: normal;
+    src: url("../../../shared/assets/fonts/NotoSans-VariableFont.ttf")
+        format("truetype-variations"),
+      url("../../../shared/assets/fonts/NotoSans-VariableFont.woff")
+        format("woff-variations"),
+      url("../../../shared/assets/fonts/NotoSans-VariableFont.woff2")
+        format("woff2-variations");
+  }
+}
