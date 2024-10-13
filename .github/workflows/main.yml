@@ -1,59 +1,145 @@
-name: Deploy to Vercel
+#只有sonar的部份
+
+name: Build
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  deploy:
+  build:
+    name: Build and analyze
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - uses: sonarsource/sonarqube-scan-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      # If you wish to fail your job when the Quality Gate is red, uncomment the
+      # following lines. This would typically be used to fail a deployment.
+      # - uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+# name: Build, Analyze, and Deploy
 
-      
-        # 因為monorepo的關係必須切換資料夾
-        # - name: Change to project directory
-        # run: cd projects/08-pricing-section-single
+# on:
+#   push:
+#     branches: [main]
 
-      #- name: Display package.json content
-       # run: cat package.json
-        # 確認package.json內容
-          
-      - name: Install dependencies
-        run: npm ci
+# jobs:
+#   build-and-analyze:
+#     name: Build and analyze
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
 
-      - name: Run tests
-        run: |
-         cd projects/08-pricing-section-single
-         npm install
-         npm run test -- --reporter=junit --outputFile=test-results.xml
-        
-        # 跑測試並產生測試報告
-        # run: npm run test:pricing -- --reporter=junit --outputFile=test-results.xml
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: "20"
 
-      - name: Upload test results to GitHub Actions
-        uses: actions/upload-artifact@v4
-        # 使用upload-artifact@v4 而不是 upload-test-results@v4
-        with:
-          name: test-results
-          path: test-results.xml
-        # 直接把測試結果上傳到GitHub Actions
+#       - name: Install dependencies
+#         run: npm ci
 
-      - name: Build project
-        run: |
-         cd projects/08-pricing-section-single
-         npm run build
-        
-      - name: Deploy to Vercel
-        if: success()
-        # 只有當所有先前的步驟（包括測試）成功時，才會執行部署。
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+#       - name: Run tests
+#         run: |
+#           cd projects/08-pricing-section-single
+#           npm install
+#           npm run test -- --reporter=junit --outputFile=test-results.xml
+
+#       - name: Upload test results
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: test-results
+#           path: projects/08-pricing-section-single/test-results.xml
+
+#       - name: Build project
+#         run: |
+#           cd projects/08-pricing-section-single
+#           npm run build
+
+#       - name: SonarQube Scan
+#         uses: sonarsource/sonarqube-scan-action@v3
+#         env:
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+#   deploy:
+#     needs: build-and-analyze
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Deploy to Vercel
+#         uses: amondnet/vercel-action@v25
+#         with:
+#           vercel-token: ${{ secrets.VERCEL_TOKEN }}
+#           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+#           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+
+# name: Deploy to Vercel
+
+# on:
+#   push:
+#     branches: [ main ]
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'
+
+#         # 因為monorepo的關係必須切換資料夾
+#         # - name: Change to project directory
+#         # run: cd projects/08-pricing-section-single
+
+#       #- name: Display package.json content
+#        # run: cat package.json
+#         # 確認package.json內容
+
+#       - name: Install dependencies
+#         run: npm ci
+
+#       - name: Run tests
+#         run: |
+#          cd projects/08-pricing-section-single
+#          npm install
+#          npm run test -- --reporter=junit --outputFile=test-results.xml
+
+#         # 跑測試並產生測試報告
+#         # run: npm run test:pricing -- --reporter=junit --outputFile=test-results.xml
+
+#       - name: Upload test results to GitHub Actions
+#         uses: actions/upload-artifact@v4
+#         # 使用upload-artifact@v4 而不是 upload-test-results@v4
+#         with:
+#           name: test-results
+#           path: test-results.xml
+#         # 直接把測試結果上傳到GitHub Actions
+
+#       - name: Build project
+#         run: |
+#          cd projects/08-pricing-section-single
+#          npm run build
+
+#       - name: Deploy to Vercel
+#         if: success()
+#         # 只有當所有先前的步驟（包括測試）成功時，才會執行部署。
+#         uses: amondnet/vercel-action@v25
+#         with:
+#           vercel-token: ${{ secrets.VERCEL_TOKEN }}
+#           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+#           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
