@@ -2,6 +2,9 @@ import {
   HdLineIcon,
   WaterPercentLineIcon,
   RainbowLineIcon,
+  RocketLineIcon,
+  PeopleToPeopleLineIcon,
+  CopyRightIcon,
 } from "../components/Icons";
 import { useLocation } from "react-router-dom";
 
@@ -26,7 +29,7 @@ export default function FeatureSectionSideRight() {
     {
       title: "Portrait or landscape",
       description:
-        "Effortlessly adapt your images for any platform - whether it's a stunning wallpaper \nor captivating Instagram reels and stories.",
+        "Effortlessly adapt your images for any platform - whether it's a stunning wallpaper or \ncaptivating Instagram reels and stories.",
       icon: RainbowLineIcon,
       alt: "rainbow-line",
     },
@@ -36,37 +39,37 @@ export default function FeatureSectionSideRight() {
       title: "Faster downloads",
       description:
         "Our robust servers are primed to deliver the highest resolution images swiftly, ensuring a \nsmooth download experience.",
-      icon: HdLineIcon,
-      alt: "hd-line",
+      icon: RocketLineIcon,
+      alt: "rocket-line",
     },
     {
       title: "Convenience for teams",
       description:
         "Your single account can accommodate multiple users simultaneously downloading without any disruptions, streamlining teamwork and productivity.",
-      icon: WaterPercentLineIcon,
-      alt: "water-percent-line",
+      icon: PeopleToPeopleLineIcon,
+      alt: "people-to-people-line",
     },
     {
       title: "Royalty-free licensing",
       description:
         "Our straightforward, royalty-free licensing means your chosen images are yours to innovate \nwith, without the hassle of \nnegotiating usage rights for \nevery new project.",
-      icon: RainbowLineIcon,
-      alt: "rainbow-line",
+      icon: CopyRightIcon,
+      alt: "copyright-line",
     },
   ];
   const features = isImageRight ? featuresRight : featuresLeft;
   return (
     <section className="p-4 font-noto-sans antialiased bg-gradient-148 flex flex-col items-center justify-center">
-      <div className="w-full flex flex-col gap-12 py-12 px-3 bg-white rounded shadow-sm md:px-4 3xl:p-24">
+      <div className="w-full flex flex-col gap-12 py-12 px-3 bg-white rounded shadow-sm md:px-4 md:py-16 3xl:p-24">
         <header className="flex flex-col gap-5">
           <div className="flex flex-col justify-center gap-3">
             <span className="font-semibold text-base text-center text-indigo-700">
               {isImageRight ? "High quality images" : "Best-in-class support"}
             </span>
-            <span className="font-semibold text-3xl text-center text-neutral-900 md:text-5xl">
+            <span className="font-semibold text-3xl text-center text-neutral-900 md:text-5xl 3xl:whitespace-pre-line">
               {isImageRight
                 ? "For designers, by designers"
-                : "Convenience and licensing that empowers"}
+                : "Convenience and licensing \nthat empowers"}
             </span>
           </div>
           <span className="font-normal text-lg text-center text-neutral-600 md:text-xl md:pb-4 md:whitespace-pre-line">
@@ -93,17 +96,11 @@ export default function FeatureSectionSideRight() {
                 <div className="w-12 h-12 rounded-full shadow-soft pl-3 pt-3">
                   <list.icon alt={list.alt} className="w-6 h-6" />
                 </div>
-                <div className="flex flex-col gap-2 py-[0.625rem] w-[15.69rem] md:w-[39.75rem]">
+                <div className="flex flex-col gap-2 py-[0.625rem] w-[15.69rem] md:w-[39.75rem] 3xl:w-[32.75rem]">
                   <h3 className="font-semibold text-lg text-neutral-900">
                     {list.title}
                   </h3>
-                  <p
-                    className={`text-base text-neutral-600 font-normal whitespace-pre-line  3xl:whitespace-normal ${
-                      isImageRight
-                        ? "md:whitespace-pre-line"
-                        : "md:whitespace-normal"
-                    }`}
-                  >
+                  <p className="text-base text-neutral-600 font-normal whitespace-pre-line md:whitespace-normal 3xl:whitespace-normal">
                     {list.description}
                   </p>
                 </div>
