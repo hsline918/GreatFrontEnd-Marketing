@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "projects/*"
   ],
   "scripts": {
     "dev": "cd packages/web-app && npm run dev",
     "test:pricing": "cd projects/08-pricing-section-single && npm run test"
-  }
+  },
+  "packageManager": "npm@10.0.0"
 }

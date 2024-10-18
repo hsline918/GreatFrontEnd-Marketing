@@ -1,5 +1,5 @@
 {
-  "name": "ecommerce",
+  "name": "@repo/02-blog-card",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,6 +8,9 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+  },
+  "exports": {
+    "./blog-card": "./src/components/BlogCard.jsx"
   },
   "dependencies": {
     "react": "^18.3.1",

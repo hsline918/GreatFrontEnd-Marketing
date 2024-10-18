@@ -1,5 +1,5 @@
 {
-  "name": "@repo/11-newsletter-section",
+  "name": "@repo/20-marketing-landing-page",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,13 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.2",
-    "dayjs": "^1.11.12",
-    "gitmoji-cli": "^9.4.0",
-    "lodash": "^4.17.21",
+    "@repo/02-blog-card": "*",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.52.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
