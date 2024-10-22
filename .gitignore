@@ -1,2 +1,4 @@
 /projects/.scannerwork/
 node_modules
+
+*storybook.log
