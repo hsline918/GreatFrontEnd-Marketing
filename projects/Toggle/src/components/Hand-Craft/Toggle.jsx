@@ -4,6 +4,7 @@ export default function Toggle({
   disabled = false,
   checked = false,
   size = "md",
+  label = "",
 }) {
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -34,8 +35,14 @@ export default function Toggle({
       "bg-gray-200 hover:bg-gray-300 hover:shadow-toggle-focus-rings-gray  hover:outline hover:outline-[0.0625rem] hover:outline-gray-400 peer-focus:bg-gray-300 peer-focus:shadow-toggle-focus-rings-gray  peer-focus:outline peer-focus:outline-[0.0625rem] peer-focus:outline-gray-400",
   };
 
+  const getToggleStyle = () => {
+    if (disabled) return toggleStyles.disabled.true;
+    if (isChecked) return toggleStyles.active;
+    return toggleStyles.inactive;
+  };
+
   return (
-    <label className="flex gap-2">
+    <label aria-label={label} className="flex gap-2">
       <input
         type="checkbox"
         className="sr-only peer"
@@ -43,16 +50,7 @@ export default function Toggle({
         onChange={(e) => setIsChecked(e.target.checked)} //DOM告訴React當前值
         disabled={disabled}
       />
-      <div
-        className={`${toggleStyles.base} 
-          ${
-            disabled
-              ? toggleStyles.disabled.true
-              : isChecked
-              ? toggleStyles.active
-              : toggleStyles.inactive
-          }`}
-      >
+      <div className={`${toggleStyles.base} ${getToggleStyle()}`}>
         <div
           className={`
             ${sizeStyles[size].circle}
@@ -61,7 +59,7 @@ export default function Toggle({
             }`}
         ></div>
       </div>
-      <span className="self-center"></span>
+      <span className="self-center">{label}</span>
     </label>
   );
 }
@@ -70,4 +68,5 @@ Toggle.propTypes = {
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
   size: PropTypes.oneOf(["sm", "md"]),
+  label: PropTypes.string,
 };
