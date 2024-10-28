@@ -4,7 +4,6 @@ export default function Toggle({
   disabled = false,
   checked = false,
   size = "md",
-  label = "",
 }) {
   const [isChecked, setIsChecked] = useState(checked);
 
@@ -13,8 +12,6 @@ export default function Toggle({
       wrapper: "w-9 h-5",
       circle: "w-4 h-4",
       translate: "translate-x-[1rem]",
-      // 計算: (wrapper寬 - circle寬 - padding*2)
-      //padding = 2px
     },
     md: {
       wrapper: "w-11 h-6",
@@ -42,7 +39,7 @@ export default function Toggle({
   };
 
   return (
-    <label aria-label={label} className="flex gap-2">
+    <label aria-label="Toggle" className="flex gap-2">
       <input
         type="checkbox"
         className="sr-only peer"
@@ -59,7 +56,7 @@ export default function Toggle({
             }`}
         ></div>
       </div>
-      <span className="self-center">{label}</span>
+      <span className="self-center"></span>
     </label>
   );
 }
@@ -68,5 +65,4 @@ Toggle.propTypes = {
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
   size: PropTypes.oneOf(["sm", "md"]),
-  label: PropTypes.string,
 };

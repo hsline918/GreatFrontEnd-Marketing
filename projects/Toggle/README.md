@@ -47,6 +47,7 @@ import { Toggle } from '@your/ui-lib'
 
 // Disabled state
 <Toggle disabled />
+
 ```
 
 ## Accessibility
