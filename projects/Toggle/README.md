@@ -2,15 +2,17 @@
 
 ## Toggle
 
-A simple toggle component that supports different sizes and states.
+A controlled toggle component that supports different sizes, states and labels.
 
 ## Props
 
-| Prop     | Default | Type           | Description                     |
-| -------- | ------- | -------------- | ------------------------------- |
-| checked  | false   | `Boolean`      | Whether the toggle is checked.  |
-| disabled | false   | `Boolean`      | Whether the toggle is disabled. |
-| size     | "md"    | `"sm" \| "md"` | The size of the toggle.         |
+| Prop     | Default | Type                         | Description                                 |
+| -------- | ------- | ---------------------------- | ------------------------------------------- |
+| checked  | -       | `Boolean`                    | Required. Controls the toggle state.        |
+| onChange | -       | `(checked: boolean) => void` | Required. Handler for toggle state changes. |
+| disabled | false   | `Boolean`                    | Whether the toggle is disabled.             |
+| size     | "md"    | `"sm" \| "md"`               | The size of the toggle.                     |
+| label    | ""      | `String`                     | Label text displayed next to toggle.        |
 
 ## Size Specifications
 
@@ -34,27 +36,42 @@ md: {
 ## Usage Example
 
 ```jsx
-import { Toggle } from '@your/ui-lib'
+import { Toggle } from "@your/ui-lib";
+import { useState } from "react";
 
-// Basic usage
-<Toggle />
+function Example() {
+  const [isChecked, setIsChecked] = useState(false);
 
-// Pre-checked
-<Toggle checked={true} />
+  return (
+    <>
+      {/* Basic controlled usage */}
+      <Toggle checked={isChecked} onChange={setIsChecked} label="Dark Mode" />
 
-// Small size
-<Toggle size="sm" />
-
-// Disabled state
-<Toggle disabled />
-
+      {/* With all props */}
+      <Toggle
+        checked={isChecked}
+        onChange={setIsChecked}
+        size="sm"
+        label="Remember me"
+        disabled={false}
+      />
+    </>
+  );
+}
 ```
 
 ## Accessibility
 
 - Uses native `checkbox` input for accessibility
+- Uses `aria-label` for label accessibility
 - Supports keyboard navigation
 - Includes focus states
 - Uses `sr-only` for screen reader support
 
-P.S. by Claude AI, given headless ui component API as format.
+## Notes
+
+- This is a controlled component, which means you must provide both `checked` and `onChange` props
+- The component uses early return pattern for style selection to avoid nested ternary operators
+- All style variations are handled through Tailwind CSS classes
+
+PS: by Claude, with Headless UI API doc for reference.
